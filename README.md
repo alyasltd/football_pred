@@ -14,7 +14,7 @@ YOLOv8 operates by dividing an image into a grid and predicting bounding boxes a
 
 #### Architecture Details 🧠
 The YOLOv8 architecture is built upon a convolutional neural network (CNN) backbone, typically a CSPDarknet, which extracts essential features from the input image. This backbone is followed by a neck, often a PANet or FPN, that enhances feature fusion from different scales. Finally, the head of the network is responsible for predicting bounding boxes, class probabilities, and object masks. The architecture's end-to-end design allows for efficient processing, making it well-suited for real-time applications like player detection and segmentation.
-(![YOLOV8's Architecture](https://github.com/user-attachments/assets/84db83ff-a9ae-4f71-b0ce-d511a2240fce)) 
+![YOLOV8's Architecture](https://github.com/user-attachments/assets/84db83ff-a9ae-4f71-b0ce-d511a2240fce)
 
 ### Our Goal and How We'll Achieve It 🎯
 The goal of this step is to accurately detect and segment football players on the field using YOLOv8. We’ll begin by training the YOLOv8 model on a curated dataset of football match footage. After fine-tuning the model, it will be capable of identifying and segmenting players in real-time, laying the groundwork for further analysis like offside detection.
