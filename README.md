@@ -1,6 +1,6 @@
 # ⚽️ football_pred Project
 
-Hi! I’m a young woman passionate about football and currently studying Applied Mathematics, Computer Science, and AI. This project is a fusion of my love for the beautiful game and my academic pursuits. I’m excited to share it with you, and I hope you’ll enjoy it as much as I do! 😊
+Hi! I’m a young woman passionate about football and currently studying Applied Mathematics, Computer Science, and AI. This project is a fusion of my love for the game and my academic pursuits. I’m excited to share it with you, and I hope you’ll enjoy it as much as I do! 😊
 
 ## First Step: YOLOv8 Players Detection and Segmentation 🏃‍♀️⚽️
 
