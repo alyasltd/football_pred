@@ -1,4 +1,4 @@
-# ⚽️ football_pred Project
+# ⚽️ Computer Vision Applied to Football
 
 Hi! I’m a young woman passionate about football and currently studying Applied Mathematics, Computer Science, and AI. This project is a fusion of my love for the game and my academic pursuits. I’m excited to share it with you, and I hope you’ll enjoy it as much as I do! 😊
 
