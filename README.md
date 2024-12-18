@@ -1,34 +1,110 @@
 # ⚽️ Computer Vision Applied to Football
 
-Hi! I’m a young woman passionate about football and currently studying Applied Mathematics, Computer Science, and AI. This project is a fusion of my love for the game and my academic pursuits. I’m excited to share it with you, and I hope you’ll enjoy it as much as I do! 😊
+Currently in the **design phase**, this README outlines the steps and features planned for implementation. 😊
 
-## First Step: YOLOv8 Players Detection and Segmentation 🏃‍♀️⚽️
+---
 
-### What is the YOLOv8 Model?
-YOLOv8 (You Only Look Once version 8) is a cutting-edge object detection model that enables real-time detection and segmentation of objects in images and videos. It’s widely used in various domains, from autonomous driving to sports analytics, due to its exceptional speed and accuracy.
+## **Roadmap** 🛣️
 
-For more details on YOLOv8, you can check out the official documentation [here](https://github.com/ultralytics/ultralytics).
+### **Phase 1: Player Detection and Initial Analysis** 🏃‍♂️⚽️
 
-### How Does It Work?
-YOLOv8 operates by dividing an image into a grid and predicting bounding boxes and class probabilities for each grid cell. The model processes these predictions to determine the objects present in the image and their locations. For segmentation tasks, YOLOv8 can also predict a mask for each object, allowing precise outlining of each player on the football field.
+1. **YOLOv11 Fine-Tuning for Player Detection** 🎯
+   - Adapt YOLOv11 for detecting football players on the field.
+   - **Objective**: Ensure robust detection of players, even under challenging scenarios like crowded scenes or varying lighting conditions.
 
-#### Architecture Details 🧠
-The YOLOv8 architecture is built upon a convolutional neural network (CNN) backbone, typically a CSPDarknet, which extracts essential features from the input image. This backbone is followed by a neck, often a PANet or FPN, that enhances feature fusion from different scales. Finally, the head of the network is responsible for predicting bounding boxes, class probabilities, and object masks. The architecture's end-to-end design allows for efficient processing, making it well-suited for real-time applications like player detection and segmentation.
-![YOLOV8's Architecture](https://github.com/user-attachments/assets/84db83ff-a9ae-4f71-b0ce-d511a2240fce)
+2. **Two Approaches for Team Differentiation** 📊
+   - **Color Histograms for Team Identification**:
+     - Extract **color histograms** from bounding box regions of detected players.
+     - Cluster players into teams based on dominant uniform colors.
+     - **Objective**: Provide a visually interpretable method for distinguishing teams based on color features.
 
-### Our Goal and How We'll Achieve It 🎯
-The goal of this step is to accurately detect and segment football players on the field using YOLOv8. We’ll begin by training the YOLOv8 model on a curated dataset of football match footage. After fine-tuning the model, it will be capable of identifying and segmenting players in real-time, laying the groundwork for further analysis like offside detection.
+   - **K-Means Clustering for Team Analysis**:
+     - Use player positions (bounding box coordinates) and spatial distributions to cluster players into two teams.
+     - **Objective**: Offer a complementary approach to visualizing teams, focusing on spatial and positional analysis.
 
-The dataset I'll be using is from Kaggle: [Football Player Detection YOLOv8](https://www.kaggle.com/datasets/iasadpanwhar/football-player-detection-yolov8).
+3. **Bounding Box Dimension and Position Analysis** 📏
+   - Analyze the following bounding box features:
+     - **Dimensions**: Width and height to capture variations in player size or movement.
+     - **Positions**: Relative field positions to map player activity.
+   - **Objective**: Identify patterns like zones of player concentration or characteristic movement behaviors during different phases of the game.
 
-Here's an example of what I want to achieve:
+---
 
-![XX](https://miro.medium.com/v2/resize:fit:1400/1*zXS4XPz1RBa2GyCOOcm2SQ.jpeg) 
+### **Phase 2: Ball Tracking and Player Statistics** 🎥⚽
 
-### Results 📊
-After training and testing our YOLOv8 model, we’ve achieved promising results in detecting and segmenting players. The model successfully identifies players on the field, even under challenging conditions like crowded scenes or varying lighting. These results are a solid foundation for building more advanced features in the app, such as offside detection, player tracking, and tactical analysis.
+1. **Ball Tracking** ⚽
+   - Implement tracking algorithms (e.g., **DeepSORT** or **ByteTrack**) to follow the ball's movement across frames.
+   - Extract trajectories to analyze key events like passes, shots, and goals.
 
-## Second Step: OFF-SIDE Detection 🚩
+2. **Player Statistics** 📈
+   - Extract metrics for each player, such as:
+     - Distance covered.
+     - Ball possession time.
+     - Speed and acceleration.
 
-*Nothing for now!* But stay tuned as I continue to develop this feature. It will leverage our player detection capabilities to automatically detect offside situations during a football match. This step will involve advanced techniques in computer vision and rule-based AI to make this feature a reality. ⚙️
+---
 
+### **Phase 3: Offside Detection** 🚩
+
+1. **Rule-Based Offside Detection**
+   - Utilize player positions and ball location to detect offside scenarios.
+   - Apply rule-based AI to automate offside decision-making.
+
+2. **Real-Time Offside Detection**
+   - Develop a pipeline for real-time offside detection during live matches.
+
+---
+
+### **Phase 4: Goal Prediction Using Temporal Analysis** 🕒⚽
+
+1. **Time-Series Analysis** 📈
+   - Use player and ball trajectories to model temporal dependencies.
+   - Train models like **LSTM** or **Transformers** to predict the likelihood of a goal at a specific moment \( t \).
+
+2. **Conformal Prediction** 📊
+   - Follow an approach inspired by **Conformal Prediction Intervals for Remaining Useful Lifetime Estimation** to quantify uncertainty in predictions.
+   - Provide statistically valid prediction intervals for goal occurrence at time \( t \), ensuring high reliability.
+
+---
+
+## **Short-Term Work Plan** ⏳
+
+1. **Phase 1**:
+   - [ ] Fine-tune YOLOv11 for player detection.
+   - [ ] Implement color histogram analysis for team differentiation.
+   - [ ] Develop K-Means clustering for team visualization.
+   - [ ] Perform bounding box dimension and position analysis.
+
+2. **Phase 2**:
+   - [ ] Implement ball tracking.
+   - [ ] Extract detailed player statistics.
+
+---
+
+## **Tech Stack** 🛠️
+
+- **Object Detection**: YOLOv11 (PyTorch).
+- **Color Analysis**: OpenCV for histogram extraction.
+- **Clustering**: K-Means for spatial team analysis.
+- **Tracking**: DeepSORT or ByteTrack for ball tracking.
+- **Time-Series Models**: LSTM or Transformers.
+- **Uncertainty Quantification**: Punch library for conformal prediction.
+
+---
+
+## **Installation and Usage** 🚀
+
+### **Clone the Project**
+```bash
+git clone https://github.com/alyasltd/football_pred.git
+```
+
+### **Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### **Conclusion**
+This project is still in the early stages, with exciting features planned for the coming months. Feel free to contribute or reach out for collaboration! 😊
